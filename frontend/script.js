@@ -20,7 +20,7 @@ form.addEventListener("submit", async (event) => {
   }
 
   try {
-    const res = await fetch(backendURL, {
+    const res = await fetch("https://feedback-backend-app-na.azurewebsites.net/submit-feedback", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
