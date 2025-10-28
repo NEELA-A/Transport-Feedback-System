@@ -9,28 +9,15 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Upload frontend files as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: frontend
-          path: frontend    # Path to your HTML/CSS/JS files
-
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: frontend
-
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'feedback-frontend-app-na'  # Your Azure App Name
+          app-name: 'feedback-frontend-app-na'  # Azure Web App Name
           slot-name: 'Production'
-          package: ./frontend                   # Deploy frontend folder
+          package: './frontend'                # Path to your HTML folder
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C7046A8DF05F42DC9AA8323D9F2C8C36 }}
