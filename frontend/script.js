@@ -3,7 +3,7 @@ const form = document.getElementById("feedbackForm");
 const responseMsg = document.getElementById("responseMsg");
 
 // Backend URL (Azure Web App)
-const backendURL = "https://feedback-backend-app-na.azurewebsites.net/submit-feedback";
+const backendURL = "https://feedback-backend-app-na.azurewebsites.net";
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
